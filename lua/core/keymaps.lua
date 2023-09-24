@@ -99,6 +99,12 @@ local themes = {
 		trueColor = true,
 		combo = "7",
 	},
+	{
+		name = "doubletrouble",
+		friendlyName = "Double Trouble",
+		trueColor = true,
+		combo = "8"
+	}
 }
 
 for _, theme in ipairs(themes) do
