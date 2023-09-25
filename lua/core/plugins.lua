@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
 	use "muchzill4/doubletrouble"
 	use "Shatur/neovim-ayu"
 	use 'barrientosvctor/abyss.nvim'
+	use "doums/darcula"
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.3',

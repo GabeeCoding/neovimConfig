@@ -104,6 +104,12 @@ local themes = {
 		friendlyName = "Double Trouble",
 		trueColor = true,
 		combo = "8"
+	},
+	{
+		name = "darcula",
+		friendlyName = "Darcula",
+		trueColor = true,
+		combo = "9"
 	}
 }
 
