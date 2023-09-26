@@ -2,6 +2,8 @@ vim.opt.wrap = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.opt.timeout = false
+
 function sudox()
 	local current_file = vim.fn.expand('%')
 	local command = 'w !SUDO_ASKPASS=`which ssh-askpass` sudo tee ' .. current_file .. ' >/dev/null' -- Write with sudo
@@ -46,8 +48,8 @@ vim.api.nvim_set_keymap("n", "<Leader>c", "ggdG", { noremap = true, silent = tru
 
 vim.cmd("set termguicolors")
 
-function colorschemeKeymap(keyCombo, name, trueColor)
-	vim.api.nvim_set_keymap("n", "<Leader>t" .. keyCombo, (trueColor and ":set termguicolors<CR>" or ":set notermguicolors<CR>") .. ":colorscheme " .. name .. "<CR>", { noremap = true, silent = true })
+function colorschemeKeymap(keyCombo, name, trueColor, beforeAction)
+	vim.api.nvim_set_keymap("n", "<Leader>t" .. keyCombo, (trueColor and ":set termguicolors<CR>" or ":set notermguicolors<CR>") .. (beforeAction or "") .. ":colorscheme " .. name .. "<CR>", { noremap = true, silent = true, nowait = true })
 end
 
 local themes = {
@@ -110,11 +112,25 @@ local themes = {
 		friendlyName = "Darcula",
 		trueColor = true,
 		combo = "9"
+	},
+	{
+		name = "accent",
+		friendlyName = "Accent Orange",
+		trueColor = true,
+		combo = "0",
+		before = ":lua vim.g.accent_colour = \"orange\"<CR>"
+	},
+	{
+		name = "accent",
+		friendlyName = "Accent Red",
+		trueColor = true,
+		combo = "q",
+		before = ":lua vim.g.accent_colour = \"red\"<CR>"
 	}
 }
 
 for _, theme in ipairs(themes) do
-	colorschemeKeymap(theme.combo, theme.name, theme.trueColor)
+	colorschemeKeymap(theme.combo, theme.name, theme.trueColor, theme.before)
 end
 
 --[[

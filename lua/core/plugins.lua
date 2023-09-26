@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
 	use "Shatur/neovim-ayu"
 	use 'barrientosvctor/abyss.nvim'
 	use "doums/darcula"
+	use "alligator/accent.vim"
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.3',
