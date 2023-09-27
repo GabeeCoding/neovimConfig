@@ -126,6 +126,12 @@ local themes = {
 		trueColor = true,
 		combo = "q",
 		before = ":lua vim.g.accent_colour = \"red\"<CR>"
+	},
+	{
+		name = "noirblaze",
+		friendlyName = "Mono Orange",
+		trueColor = true,
+		combo = "w"
 	}
 }
 

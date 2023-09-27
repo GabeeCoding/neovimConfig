@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
 	use 'barrientosvctor/abyss.nvim'
 	use "doums/darcula"
 	use "alligator/accent.vim"
+	use "GabeeCoding/noirblaze-vim"
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.3',
