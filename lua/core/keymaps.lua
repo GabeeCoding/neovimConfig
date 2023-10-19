@@ -3,6 +3,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.timeout = false
+vim.opt.expandtab = false
 
 function sudox()
 	local current_file = vim.fn.expand('%')
@@ -24,24 +25,7 @@ vim.api.nvim_set_keymap('c', 'w!!', ':lua sudow()<CR>', { noremap = true, silent
 --<Leader>q to quit terminal mode
 vim.api.nvim_set_keymap("t", "<Leader>q", "<C-\\><C-n>", { noremap = true, silent = true })
 
-vim.cmd("command! -nargs=0 STT lua convert_spaces_to_tabs()")
-
--- The convert_spaces_to_tabs function remains the same as you provided
-function convert_spaces_to_tabs()
-	-- Get the current buffer handle
-	local buf = vim.api.nvim_get_current_buf()
-
-	-- Get the lines from the current buffer
-	local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-
-	-- Replace 4 spaces with a tab in each line
-	for i, line in ipairs(lines) do
-		lines[i] = line:gsub("	", "\t")
-	end
-
-	-- Set the modified lines back to the buffer
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-end
+vim.cmd("command! -nargs=0 STT %s/    /\\t/g")
 
 --clear entire buffer
 vim.api.nvim_set_keymap("n", "<Leader>c", "ggdG", { noremap = true, silent = true })
