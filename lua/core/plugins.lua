@@ -68,6 +68,8 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use 'dylanaraps/wal.vim'
+
 	--[[
 	if truecolor then
 		vim.cmd("colorscheme nightfox")
