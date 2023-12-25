@@ -30,8 +30,6 @@ vim.cmd("command! -nargs=0 STT %s/    /\\t/g")
 --clear entire buffer
 vim.api.nvim_set_keymap("n", "<Leader>c", "ggdG", { noremap = true, silent = true })
 
-vim.cmd("set termguicolors")
-
 function colorschemeKeymap(keyCombo, name, trueColor, beforeAction)
 	vim.api.nvim_set_keymap("n", "<Leader>t" .. keyCombo, (trueColor and ":set termguicolors<CR>" or ":set notermguicolors<CR>") .. (beforeAction or "") .. ":colorscheme " .. name .. "<CR>", { noremap = true, silent = true, nowait = true })
 end
@@ -44,9 +42,9 @@ local themes = {
 		combo = "0",
 	},
 	{
-		name = "roblox",
-		friendlyName = "Roblox Studio",
-		trueColor = true,
+		name = "wal",
+		friendlyName = "Pywal colours",
+		trueColor = false,
 		combo = "1",
 	},
 	{
@@ -116,6 +114,12 @@ local themes = {
 		friendlyName = "Mono Orange",
 		trueColor = true,
 		combo = "w"
+	},
+	{
+		name = "noirblaze",
+		friendlyName = "Mono Pink",
+		trueColor = false,
+		combo = "e"
 	}
 }
 

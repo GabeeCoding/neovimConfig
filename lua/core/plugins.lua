@@ -26,7 +26,6 @@ return require('packer').startup(function(use)
 	]]
 	use 'rktjmp/lush.nvim'
 	--theme collection
-	use "GabeeCoding/roblox.nvim"
 	use "GabeeCoding/monochrome.nvim"
 	use "GabeeCoding/notepad.nvim"
 	use "GabeeCoding/red.nvim"
