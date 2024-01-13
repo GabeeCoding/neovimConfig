@@ -9,7 +9,7 @@ local success = xpcall(function()
 end, function (err)
 	print("FAILED TO LOAD CONFIG, STUFF WILL FAIL")
 	print("Have you created a config.lua file?")
-	print(err)
+	--print(err)
 end, "config")
 
 if success then
@@ -35,6 +35,18 @@ if success then
 	local leaderKey = config.leaderKey
 	if leaderKey then
 		vim.g.mapleader = leaderKey
+	end
+
+	local lineNumberMode = config.lineNumbers
+	if lineNumberMode == "standard" then
+		vim.cmd("set norelativenumber")
+		vim.cmd("set number")
+	elseif lineNumberMode == "relative" then
+		vim.cmd("set relativenumber")
+		vim.cmd("set number")
+	else
+		vim.cmd("set norelativenumber")
+		vim.cmd("set nonumber")
 	end
 end
 require("core.keymaps")
