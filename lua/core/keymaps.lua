@@ -150,4 +150,6 @@ endfunction
 )
 ]]
 
+vim.api.nvim_set_keymap("n", "<C-b>", ":Ex<CR>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<Leader>ee", vim.cmd.Ex)
