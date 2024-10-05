@@ -41,7 +41,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	use("nvim-treesitter/nvim-treesitter")
+	--{ run = ":TSUpdate" }
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -55,15 +56,6 @@ return require('packer').startup(function(use)
 			{'hrsh7th/nvim-cmp'}, -- Required
 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
 			{'L3MON4D3/LuaSnip'}, -- Required
-		}
-	}
-
-	use {
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
 		}
 	}
 
