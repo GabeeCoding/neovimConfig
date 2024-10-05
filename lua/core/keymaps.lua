@@ -27,6 +27,9 @@ vim.api.nvim_set_keymap("t", "<Leader>q", "<C-\\><C-n>", { noremap = true, silen
 
 vim.cmd("command! -nargs=0 STT %s/    /\\t/g")
 
+--press ctrl+p to run in python
+vim.cmd("noremap <silent> <C-p> :!python \"%\"<CR>")
+
 --clear entire buffer
 vim.api.nvim_set_keymap("n", "<Leader>c", "ggdG", { noremap = true, silent = true })
 
